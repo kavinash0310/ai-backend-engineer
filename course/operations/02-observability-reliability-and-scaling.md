@@ -31,3 +31,13 @@ Why are traces useful? They show where one request spent time across components.
 Practice: trace an RAG request through API, database, vector retrieval, provider call, and response. Define one latency SLO, one cost alert, one provider-outage behavior, and one privacy-safe log format.
 
 Further reading: [OpenTelemetry signals](https://opentelemetry.io/docs/concepts/signals/) and [Google production ML monitoring](https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring).
+
+## Define reliability from the user's view
+
+An SLI is a measurement such as successful answer requests completed within a latency target. An SLO is the target over a window. An error budget is the allowed failure portion; if it is consumed, the team should prioritize reliability work. Count user-visible task success, not only HTTP 200 responses.
+
+Trace a request across API, database, queue, retrieval, and provider. Record queue wait separately from worker execution. Metrics should use bounded labels such as route, status, and model; unique user IDs create high cardinality and can overwhelm a metrics backend. Keep sensitive prompts out of logs by default.
+
+Capacity planning must coordinate API replicas, database pool sizes, queue worker concurrency, provider quotas, GPU limits, and memory. More API instances can multiply database connections and provider calls. Backpressure should slow or reject work before dependencies collapse. Autoscaling on CPU alone may miss a growing queue or provider throttle.
+
+Practice: define one answer-success SLO, one cost alert, and a trace plan. Simulate a slow provider and document timeout, retry, queue, and user-visible behavior.

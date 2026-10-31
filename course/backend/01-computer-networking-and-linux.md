@@ -46,3 +46,15 @@ When a local endpoint does not answer, check in this order: is the process runni
 Practice: run a local web service, identify its process and port, send a request from a command line, stop the process, and explain how the error changes. Draw the request path from client to database and back.
 
 Further reading: [Python asyncio overview](https://docs.python.org/3/howto/a-conceptual-overview-of-asyncio.html) and [HTTP Semantics, RFC 9110](https://www.rfc-editor.org/rfc/rfc9110).
+
+## Trace a failed request layer by layer
+
+A client resolves api.example.com through DNS, opens a TCP connection to port 443, negotiates TLS, then sends HTTP. A proxy may route the request to an application container, which queries a database and a model provider before responding. Failures at these layers look different: DNS failure means the name did not resolve; connection refusal means no process accepted the connection; timeout means no reply arrived before the deadline, even though a remote operation may have completed; a 401 or 403 is an application identity/permission result.
+
+Use a request ID to connect client, proxy, API, worker, and provider records. Do not use raw prompts or access tokens as correlation identifiers. When debugging, check process health, bind address, port mapping, network route, application logs, and downstream dependencies in that order.
+
+## Process lifecycle
+
+A process can own open database connections and in-flight jobs. Graceful shutdown stops new work, completes or cancels active requests within a bounded time, closes pools, then exits. Abrupt termination can leave a job in an uncertain state. API and worker processes have separate capacity: adding API replicas does not automatically add job-processing throughput.
+
+**Practice answer:** If a service works on the host but not from another container, inspect the listening address, published port, and container DNS/network. If a provider call times out, record that its outcome may be unknown and use an idempotency/status mechanism before repeating a side effect.

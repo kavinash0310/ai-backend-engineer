@@ -58,3 +58,13 @@ Questions: What does dependency injection improve? It makes shared resources and
 Practice: build a notes API with create/read/list routes, request and response models, pagination, validation, a database dependency, and tests. Add a service function and test it without HTTP.
 
 Further reading: [FastAPI tutorial](https://fastapi.tiangolo.com/tutorial/) and [FastAPI dependencies](https://fastapi.tiangolo.com/tutorial/dependencies/).
+
+## Resource ownership and cancellation
+
+Create shared HTTP clients and database pools once during application startup, reuse them, and close them on shutdown. Recreating clients on each request wastes connection setup and may exhaust sockets. A request-scoped database session should be cleaned up whether the route succeeds or raises.
+
+The event loop switches among coroutines when they await. A blocking HTTP client or CPU-heavy inference inside an async handler can stall unrelated requests. Use async clients for network waits; move CPU/GPU-heavy work to a worker or dedicated inference service. Async is concurrency for waiting, not automatic parallel computation.
+
+When a browser disconnects during generation, decide whether to cancel provider work, continue and persist the result, or mark a job cancelled. Bound concurrency so many simultaneous requests cannot exceed database connections or provider quotas. Keep the route thin: parse HTTP, call a service use case, and translate the result into an HTTP response.
+
+Practice: create a service function callable from both a route and a worker. Test it without an HTTP server. Simulate timeout and cancellation and record the job's terminal state.

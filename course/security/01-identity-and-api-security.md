@@ -37,3 +37,15 @@ For SSRF, never fetch arbitrary user-provided URLs from a privileged backend wit
 Practice: create two test users and two private documents. Attempt read, list, update, delete, and job-status operations with the wrong identity. Every operation should deny access without revealing whether sensitive records exist beyond the product's intended behavior.
 
 Further reading: [OWASP API Security Top 10](https://api-security.owasp.org/editions/2023/en/0x11-t10/) and [OAuth 2.0 security best current practice, RFC 9700](https://datatracker.ietf.org/doc/html/rfc9700).
+
+## Verify tokens and permissions at every boundary
+
+A bearer token is a credential: whoever holds it can act until expiry or revocation. Do not log it. When accepting a JWT, validate its signature, permitted algorithm, issuer, audience, expiry, and key source. Decoding its JSON is not validation. OAuth access tokens authorize access; OpenID Connect ID tokens describe authentication to a client. Do not swap their roles.
+
+Authorization should evaluate caller, action, resource, tenant, and context. A role such as member is coarse; a document-specific permission is finer. Every endpoint that loads a caller-provided ID needs ownership/permission enforcement: list, detail, update, delete, search, download, and job status. The UI hiding a button is not an API control.
+
+Use explicit input schemas so a caller cannot mass-assign fields such as owner_id, role, or billing status. Apply least privilege to workers and service accounts. Rate-limit and cap request size, especially when an operation can trigger model costs.
+
+Questions: Is a user ID supplied in JSON proof of identity? No; derive identity from a validated credential. Is CORS authorization? No; it is a browser access policy and does not stop direct API calls.
+
+Practice: create two users and test cross-user read, list, update, deletion, and job-status routes. Also test changing owner_id in an update request.

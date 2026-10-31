@@ -42,3 +42,15 @@ Questions: Why preserve source metadata? The application needs citations, versio
 Practice: write ten answerable, five unanswerable, and five adversarial queries. Record relevant chunks, expected answer claims, access rules, retrieval recall at five, citation correctness, and abstention.
 
 Further reading: [AI From Scratch RAG lesson](https://github.com/kavinash0310/ai-from-scratch/blob/main/course/generative-ai/02-rag.md) and [Google ML monitoring guidance](https://developers.google.com/machine-learning/crash-course/production-ml-systems/monitoring).
+
+## Ingestion versions and retrieval measurements
+
+Track document checksum, source version, parser status, chunker version, embedding model version, and index version. Re-uploading identical content can be deduplicated. A change to embeddings or chunking should build a new index, run evaluation, and switch traffic only after validation. Store original files in object storage and keep ownership/version metadata in a trusted database.
+
+For retrieval evaluation, label relevant passages per query. Recall at k measures how often a relevant passage appears in the first k results. It does not measure whether generation used the passage. Also score ranking, answer support, citation accuracy, completeness, and abstention. Include old versions, conflicting policies, missing evidence, and inaccessible documents.
+
+At context assembly, remove duplicate overlapping chunks, preserve section headings, enforce a token budget, and include source/version IDs. The backend should map source IDs to links after access is checked; do not trust model-generated URLs.
+
+A failure may originate in extraction, chunking, permissions, search, ranking, context order, generation, or citation display. Diagnose the earliest failing stage before changing prompts.
+
+Practice: index two versions of one public policy and a private document for another tenant. Write tests for current version, stale version, no answer, and forbidden access. Keep retrieval and answer scores separate.

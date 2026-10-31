@@ -27,3 +27,15 @@ Questions: Can the vector store decide who can read a chunk? No; access control 
 Practice: design a queued PDF-ingestion job with job states, retry limit, duplicate handling, file size checks, tenant-specific chunk metadata, and cleanup behavior.
 
 Further reading: [Redis documentation](https://redis.io/docs/latest/) and [PostgreSQL documentation](https://www.postgresql.org/docs/current/).
+
+## Retries, duplicate delivery, and the outbox
+
+Queues commonly provide at-least-once delivery: a worker can receive a message again after a crash or acknowledgement failure. Make consumers idempotent with a unique job ID and conditional state transitions. A retry should not send a message twice or charge twice.
+
+There is a gap between committing a job row and publishing its queue message: the database can commit while the broker is unavailable. A transactional outbox writes the job and an outbox event in the same database transaction. A publisher later sends the event and marks it delivered. Duplicate sends can still happen, so the worker remains idempotent.
+
+Cache keys must include tenant, user, document version, and model/prompt version when those affect the result. Otherwise matching prompts can leak one user's cached answer to another. Expire or invalidate results when permissions or source documents change.
+
+Embedding models and chunking rules may change dimensions or meaning. Version the embedding model, chunker, and source; build a new index, evaluate it, then switch traffic. Vector similarity is relevance, never authorization. Verify access from trusted permission data before context reaches a model.
+
+Practice: draw a crash-recovery sequence for ingestion, then describe how an outbox and idempotent worker prevent a lost job or duplicate side effect.

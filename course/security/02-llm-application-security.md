@@ -39,3 +39,15 @@ A safe design verifies access on retrieval and again before any action, denies b
 Questions: Does a system prompt stop indirect injection? No. What must prevent cross-tenant retrieval? Application-level authorization applied before model context is assembled. Why bound tokens and uploads? They control abuse, latency, and cost.
 
 Further reading: [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/) and [OWASP API Security Top 10](https://api-security.owasp.org/editions/2023/en/0x11-t10/).
+
+## Secure every model-visible boundary
+
+Treat user text, retrieved documents, OCR, images, and tool outputs as untrusted. Delimiters and prompts help structure context but do not reliably distinguish authority. The backend must enforce permissions deterministically: filter documents before retrieval context is assembled; give the model narrow tools; validate arguments; check the user's rights inside each tool; and require confirmation for high-impact actions.
+
+Do not give a model unrestricted SQL, shell, filesystem, or network tools. A schema-valid tool call can still name an unauthorized object. Do not render generated HTML as trusted, execute generated code, or use model text as SQL.
+
+URL ingestion creates SSRF risk. Block localhost, private networks, link-local cloud metadata, and redirects to internal destinations. Apply timeouts, size caps, allowlists when practical, and network egress controls. File ingestion should restrict types and size and isolate parsers.
+
+Minimize prompts and logs. Store only what is needed; redact private text and credentials; restrict access and retention. Bound tokens, tool calls, concurrency, and upload size to control both abuse and provider cost.
+
+Practice: create a read-only document tool. Attempt a cross-tenant request and an instruction embedded in the document that asks for another user's files. The application should deny retrieval before generation.

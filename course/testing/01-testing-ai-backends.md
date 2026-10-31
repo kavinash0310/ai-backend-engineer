@@ -31,3 +31,15 @@ Questions: Why not test only the model? The API, permissions, database, queue, a
 Practice: create 20 test cases for an internal knowledge assistant: supported answer, absent evidence, conflicting docs, access denial, injection text, provider timeout. Define pass criteria before running the system.
 
 Further reading: [FastAPI testing](https://fastapi.tiangolo.com/tutorial/testing/) and [OpenTelemetry signals](https://opentelemetry.io/docs/concepts/signals/).
+
+## Test levels and evaluation design
+
+Use unit tests for pure logic such as quotas and state transitions. Integration tests exercise database, storage, and queue behavior. Contract tests check request and response schemas. End-to-end tests cover a small number of important user journeys. Migration tests should create a fresh database and upgrade from the previous schema.
+
+For AI evaluation, store versioned inputs, expected evidence or behavior, rubric, severity, and rationale. Include normal, ambiguous, no-answer, adversarial, and group/language-specific cases. Score task completion, support, citations, refusal, and schema separately; a single average can hide a critical failure. Exact-text comparison is often inappropriate for open-ended responses.
+
+Mock providers for deterministic unit tests, then run a limited integration suite in staging. Do not auto-accept new expected answers after a failed test; investigate whether the model, source set, or expected policy changed.
+
+Load and failure tests should include long prompts, concurrency, provider 429/timeout, database outage, queue backlog, duplicate delivery, client cancellation, and worker crash. Inspect latency, memory, retries, and cost, not just success.
+
+Practice: test a provider adapter in success, timeout, rate-limit, and invalid-output modes. Create five evaluation cases and define criteria before observing outputs.

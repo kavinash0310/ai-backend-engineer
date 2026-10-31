@@ -39,3 +39,15 @@ Questions: Why not retry every error? Invalid requests and permission failures w
 Practice: implement a fake provider that can return success, timeout, rate limit, malformed output, and cancellation. Test each service outcome without live credentials.
 
 Further reading: [FastAPI async dependencies](https://fastapi.tiangolo.com/tutorial/dependencies/) and [OpenTelemetry signals](https://opentelemetry.io/docs/concepts/signals/).
+
+## Time budgets, retries, and output validation
+
+An end-to-end request spends time in authentication, database, retrieval, provider generation, validation, and response transfer. Give each dependency a deadline that fits inside the overall request budget. A provider call should not wait longer than the client will wait. Track connection timeout and response timeout separately.
+
+Retry transient network errors or provider throttling only when appropriate. Use exponential backoff with jitter and a maximum attempt/time budget. Invalid credentials and malformed requests will not recover by retrying. Repeated model calls cost money; retries must be visible in telemetry.
+
+A provider adapter can normalize request IDs, usage, error categories, and stream events while keeping provider-specific capabilities explicit. Do not hide important differences in a lowest-common-denominator interface. Record provider and model revisions because behavior may change.
+
+Validate structured output with both a parser and application rules. Schema validity means the shape is correct; it does not mean the content is true or authorized. One repair attempt can be useful, but cap it. On failure, return a safe error or queue for review.
+
+Practice: implement a fake provider that can succeed, time out, rate-limit, return malformed JSON, and be cancelled. Verify cost/concurrency limits and safe client errors.

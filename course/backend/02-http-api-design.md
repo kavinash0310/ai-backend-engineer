@@ -42,3 +42,15 @@ Questions: Why validate before calling a model? It saves money and prevents inva
 Practice: design an API for uploading a document and checking its processing status. Define paths, methods, response schemas, error codes, pagination or size limits, ownership checks, and retry behavior.
 
 Further reading: [HTTP Semantics, RFC 9110](https://www.rfc-editor.org/rfc/rfc9110) and [FastAPI tutorial](https://fastapi.tiangolo.com/tutorial/).
+
+## Complete API contracts
+
+For each route, document purpose, authentication, authorization, request and response schemas, possible status codes, pagination, input limits, idempotency, and compatibility expectations. An API contract should tell a client how to recover without exposing internal implementation.
+
+Cursor pagination can remain stable while records are inserted; a cursor may represent an ordering tuple such as (created_at, id). Validate cursors and apply ownership filters in every page query. For slow AI work, a create-job endpoint can return 202 Accepted with a job ID and a status URL. Define states such as queued, running, succeeded, failed, and cancelled. A job status endpoint still needs an ownership check.
+
+Idempotency handles the uncertain case where a client times out after the server completed a POST. Save the key with caller identity and result under a uniqueness constraint. A repeated key with the same payload returns the original result; reuse with a different payload is rejected. This prevents duplicate external actions and unnecessary model cost.
+
+Questions: Why distinguish 401 and 403? A 401 is missing or invalid identity; a 403 is an authenticated caller without permission. Why cap page sizes? To bound response and database cost. Why return 202? Work was accepted but has not completed.
+
+Practice: document an upload-and-analyze API with accepted file size, ownership, idempotency, async status, pagination, errors, and retry behavior.

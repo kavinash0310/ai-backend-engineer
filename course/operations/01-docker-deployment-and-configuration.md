@@ -27,3 +27,13 @@ Questions: Why are containers not virtual machines? Containers share the host ke
 Practice: package a FastAPI app, run it as a non-root user, pass configuration at runtime, connect it to a database container, and verify health and shutdown behavior.
 
 Further reading: [Docker getting started](https://docs.docker.com/get-started/introduction/index.html) and [Docker containers learning path](https://docs.docker.com/learn/paths/get-started-with-docker-containers/).
+
+## Release safely and keep configuration outside the image
+
+A multi-stage Docker build can keep compilers and development tools out of the final runtime image. Pin dependencies and base versions, run as a non-root user, scan packages, and set CPU and memory limits. Never bake credentials into image layers because deleted files can remain in image history.
+
+Inject environment-specific settings at runtime and validate them before readiness. Separate liveness (should this process restart?) from readiness (can it serve now?). Stop taking new traffic during shutdown, finish or cancel work, then close pools.
+
+Database changes should support overlapping old/new application replicas during a rolling deploy. Add fields before requiring them, backfill in batches, switch code, then remove obsolete fields later. Run a migration as a controlled release step, not as a race among every replica.
+
+Practice: deploy an API change that adds a database column. Document backward compatibility, migration order, health verification, rollback, and secret rotation.

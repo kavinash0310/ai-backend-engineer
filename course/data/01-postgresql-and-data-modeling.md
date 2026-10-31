@@ -41,3 +41,13 @@ Questions: Why not keep a database transaction open during model generation? The
 Practice: design tables for users, documents, and asynchronous processing jobs. Add owner references, unique IDs, status constraints, and indexes for listing a user's recent jobs. Write a query that always filters by the authenticated owner.
 
 Further reading: [PostgreSQL tutorial](https://www.postgresql.org/docs/current/tutorial.html) and [PostgreSQL application development](https://www.postgresql.org/docs/current/appdev.html).
+
+## Concurrency and safe schema changes
+
+Two requests can read the same old value then overwrite one another. Use atomic SQL updates, uniqueness constraints, row locks, or suitable isolation for the invariant. A database constraint protects data even when several application instances run concurrently; an application-only check-then-insert can race.
+
+A model request should not hold a database transaction open while waiting on a slow provider. Save a job state in a short transaction, release the connection, do external work, then write the result in a second short transaction. Store users, conversations, messages, documents, chunks, and jobs as entities with explicit ownership and lifecycle. Deleting a source may also require removing derived chunks, vectors, and cached results.
+
+Indexes speed selected filters or joins but slow writes and use storage. A composite index should follow real query patterns; inspect query plans with representative data. Schema migrations should be versioned and compatible with rolling deploys. For a large table, add a nullable field, deploy code that supports both forms, backfill in batches, then enforce constraints and remove obsolete fields later.
+
+Practice: design an index for “list this tenant's newest jobs,” and describe how you would add a required tenant ID without breaking a running service.

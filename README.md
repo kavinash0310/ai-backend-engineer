@@ -28,7 +28,7 @@ flowchart LR
 
 A reasonable pace is 6–10 focused hours each week over roughly 6–10 months, depending on prior coding experience. Move forward when you can build and explain the checkpoint, not just when you finish reading.
 
-## What you will be able to build
+## Advanced electives\n\nAfter the core, study [system design and cloud foundations](course/operations/03-system-design-and-cloud.md) and [self-hosted model serving](course/ai-systems/04-self-hosted-model-serving.md) if those match your target role.\n\n## What you will be able to build
 
 By the end, you should be able to design a backend that accepts a request, authenticates the caller, validates input, reads and writes persistent data, calls an AI model safely, handles slow work, returns a clear response, measures quality and cost, and recovers from failures. You will also learn when a queue, cache, vector index, or agent is unnecessary.
 

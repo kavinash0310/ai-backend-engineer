@@ -55,4 +55,4 @@ Use this tracker as evidence of completed skills. Mark a topic done only after c
 | Grounded RAG service |  |  |  |
 | Production capstone |  |  |  |
 
-Continue with the [course index](course/README.md) and [readiness rubric](assessments/README.md).
+Continue with the [course index](course/README.md) and [readiness rubric](assessments/README.md).\n\n## Optional advanced operations\n\n- [ ] Design an AI backend for load, failure, and recovery ([lesson](course/operations/03-system-design-and-cloud.md))\n- [ ] Compare hosted and self-hosted inference with measured quality/cost ([lesson](course/ai-systems/04-self-hosted-model-serving.md))\n

@@ -28,7 +28,7 @@ A production AI backend is ordinary software plus model-specific concerns. It mu
 3. **Software quality:** [testing and architecture](testing/01-testing-ai-backends.md), [authentication and API security](security/01-identity-and-api-security.md).
 4. **Data:** [PostgreSQL and transactions](data/01-postgresql-and-data-modeling.md), [caches, queues, and storage](data/02-caching-queues-and-vector-storage.md).
 5. **AI services:** [model provider integration](ai-systems/01-model-provider-integration.md), [RAG backend](ai-systems/02-rag-backend.md), [tools and workflows](ai-systems/03-tools-workflows-and-streaming.md), [LLM application security](security/02-llm-application-security.md).
-6. **Ship and operate:** [Docker and deployment](operations/01-docker-deployment-and-configuration.md), [observability and scaling](operations/02-observability-reliability-and-scaling.md).
+6. **Ship and operate:** [Docker and deployment](operations/01-docker-deployment-and-configuration.md), [observability and scaling](operations/02-observability-reliability-and-scaling.md).\n7. **Advanced electives:** [system design and cloud](operations/03-system-design-and-cloud.md), [self-hosted model serving](ai-systems/04-self-hosted-model-serving.md).
 
 ## Subject folders
 
@@ -37,9 +37,9 @@ A production AI backend is ordinary software plus model-specific concerns. It mu
 | [Backend](backend/README.md) | Computer processes, networks, HTTP, APIs, FastAPI, async |
 | [Data systems](data/README.md) | PostgreSQL, transactions, caching, queues, object and vector storage |
 | [Security](security/README.md) | Identity, authorization, API risks, LLM-specific threats |
-| [AI systems](ai-systems/README.md) | Model calls, RAG, tools, workflows, streaming |
+| [AI systems](ai-systems/README.md) | Model calls, RAG, tools, workflows, streaming, self-hosted serving |
 | [Testing](testing/README.md) | Software tests, API contracts, AI evaluation, load and failure tests |
-| [Operations](operations/README.md) | Containers, configuration, deployment, observability, reliability |
+| [Operations](operations/README.md) | Containers, configuration, system design, cloud, deployment, observability, reliability |
 | [Projects](../projects/README.md) | Three projects from model API to production capstone |
 
 ## What “done” means

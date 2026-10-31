@@ -5,5 +5,4 @@ A service is only dependable when it can be configured, released, monitored, sca
 ## Chapters
 
 1. [Docker, configuration, and deployment](01-docker-deployment-and-configuration.md)
-2. [Observability, reliability, and scaling](02-observability-reliability-and-scaling.md)
-
+2. [Observability, reliability, and scaling](02-observability-reliability-and-scaling.md)\n\n3. [System design and cloud foundations](03-system-design-and-cloud.md) — optional advanced study after deployment basics.\n

@@ -29,4 +29,4 @@
 9. System design, cloud, security, operations
 10. Projects and interviews
 
-Use the [existing-notes inventory](../EXISTING-NOTES-INVENTORY.md) to reuse verified material and avoid duplicating whole courses.
+Use the [existing course contents](../../README.md) to connect these foundations with the Java/Spring AI backend track and avoid duplicating whole courses.

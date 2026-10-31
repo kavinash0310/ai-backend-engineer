@@ -39,3 +39,9 @@ Read the lesson first, then consult current official documentation for exact API
 - [Generative AI](https://github.com/kavinash0310/ai-from-scratch/tree/main/course/generative-ai)
 
 Check Java/Spring requirements, the matching Spring AI BOM, provider API/model limits, and cloud lifecycle at project start.
+
+## Your existing repositories (optional refreshers)
+
+- [Java Backend Interview Mastery](https://github.com/kavinash0310/java-backend-interview-mastery)
+- [CS Fundamentals](https://github.com/kavinash0310/cs-fundamentals)
+- [Your System Design Primer fork](https://github.com/kavinash0310/system-design-primer) — [upstream source](https://github.com/donnemartin/system-design-primer); preserve upstream license and attribution.

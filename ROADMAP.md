@@ -27,6 +27,15 @@ The estimates assume 6–8 focused hours weekly. They are planning aids, not a p
 
 A part-time route often takes 6–10 months. That is time to build evidence, not a guarantee of seniority; actual hiring expectations depend on production ownership and the role.
 
+## Use your other repositories to fill gaps
+
+Use only the modules you need; the AI backend roadmap remains the sequence to follow.
+
+- If Java, concurrency, JVM, or Spring needs a refresher, use [Core Java](https://github.com/kavinash0310/java-backend-interview-mastery/tree/main/core-java), [concurrency](https://github.com/kavinash0310/java-backend-interview-mastery/tree/main/multithreading-concurrency), [JVM](https://github.com/kavinash0310/java-backend-interview-mastery/tree/main/jvm-memory-management), and [Spring Boot](https://github.com/kavinash0310/java-backend-interview-mastery/tree/main/spring-boot).
+- If operating systems, networking, SQL/database, or algorithms are weak, use the matching chapters in [CS Fundamentals](https://github.com/kavinash0310/cs-fundamentals).
+- For container/cloud refreshers, consult your [Docker/Kubernetes](https://github.com/kavinash0310/java-backend-interview-mastery/tree/main/docker-kubernetes-cicd) and [AWS](https://github.com/kavinash0310/java-backend-interview-mastery/tree/main/cloud-aws) modules.
+- After Phase 9, use [your system-design fork](https://github.com/kavinash0310/system-design-primer) for extra interview prompts; use its [upstream repository](https://github.com/donnemartin/system-design-primer) as the source of truth and preserve its license/attribution.
+
 ## Stage-by-stage path
 
 ### Phase 0 — Model literacy

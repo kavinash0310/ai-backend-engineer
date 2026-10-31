@@ -56,6 +56,18 @@ Follow the [textbook index](https://github.com/kavinash0310/ai-from-scratch/blob
 
 Most backend engineers integrate models; ML engineers may also train or serve them. Senior AI backend engineers need enough model literacy to challenge designs, evaluate behavior, and avoid treating probabilistic output as truth.
 
+## Use your existing CS and Java repositories selectively
+
+You already have supporting material, so do not re-study every foundation chapter if you can demonstrate the skill. Use these repos to fill specific gaps:
+
+| Need a refresher in | Your repository |
+| --- | --- |
+| Core Java, Spring Boot, concurrency, JVM, messaging, AWS, Docker/Kubernetes, and interview practice | [Java Backend Interview Mastery](https://github.com/kavinash0310/java-backend-interview-mastery) |
+| Operating systems, computer networks, SQL/databases, algorithms, discrete math, and OOP | [CS Fundamentals](https://github.com/kavinash0310/cs-fundamentals) |
+| System design interview patterns after completing this course's design chapter | [Your System Design Primer fork](https://github.com/kavinash0310/system-design-primer), with the [upstream project](https://github.com/donnemartin/system-design-primer) as the canonical source |
+
+Use these as references, not prerequisites to finish from cover to cover. For the fork, follow its upstream license and attribution; the AI backend lessons here provide the AI-specific design context.
+
 ## Senior-level outcome
 
 You should be able to explain a request end to end; choose synchronous or asynchronous execution; set quality, latency, privacy, and cost budgets; protect tenant boundaries; measure retrieval separately from generation; manage provider outages and model changes; and present trade-offs using evidence.

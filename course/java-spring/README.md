@@ -53,6 +53,14 @@ The notes assume you can read Java, use dependency injection, build REST endpoin
 
 Python is useful for notebooks and data scripts, but optional for the backend unless a model-serving component requires it.
 
+## Prerequisite and interview references from your repositories
+
+These are optional refreshers, not extra required curricula:
+
+- [Java Backend Interview Mastery](https://github.com/kavinash0310/java-backend-interview-mastery): use its [Core Java](https://github.com/kavinash0310/java-backend-interview-mastery/tree/main/core-java), [concurrency](https://github.com/kavinash0310/java-backend-interview-mastery/tree/main/multithreading-concurrency), [JVM](https://github.com/kavinash0310/java-backend-interview-mastery/tree/main/jvm-memory-management), and [Spring Boot](https://github.com/kavinash0310/java-backend-interview-mastery/tree/main/spring-boot) guides only where you need review.
+- [CS Fundamentals](https://github.com/kavinash0310/cs-fundamentals): selected notes on [operating systems](https://github.com/kavinash0310/cs-fundamentals/blob/main/subjects/operating-systems.md), [networks](https://github.com/kavinash0310/cs-fundamentals/blob/main/subjects/computer-networks.md), [databases and SQL](https://github.com/kavinash0310/cs-fundamentals/blob/main/subjects/database-systems-sql.md), and [discrete math](https://github.com/kavinash0310/cs-fundamentals/blob/main/subjects/discrete-mathematics.md).
+- For interview practice after Chapter 10, see [your System Design Primer fork](https://github.com/kavinash0310/system-design-primer) and its [upstream source](https://github.com/donnemartin/system-design-primer). Treat upstream content as third-party material and follow its license and attribution.
+
 ## Completion criteria
 
 A chapter is complete when you can explain its terms, reproduce the exercise, test a failure case, and state a trade-off. The capstone should include a threat model, evaluation data, latency/cost report, traces, runbook, rollback instructions, and limitations.

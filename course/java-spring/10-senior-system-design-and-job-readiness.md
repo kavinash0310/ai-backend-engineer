@@ -81,6 +81,8 @@ Be ready to defend Spring MVC with bounded blocking calls vs reactive compositio
 
 There is no universal answer. State constraints, alternatives, risks, operating cost, and evidence that would change your decision.
 
+For extra interview practice after completing the capstone, use [your System Design Primer fork](https://github.com/kavinash0310/system-design-primer). It is a fork of [donnemartin/system-design-primer](https://github.com/donnemartin/system-design-primer); treat the upstream repository as canonical and preserve its license and attribution. This material reinforces general system design, while this chapter focuses on model quality, provider limits, retrieval, privacy, and AI-specific failure modes.
+
 ## 10.5 Portfolio and interview evidence
 
 Prepare five-minute and thirty-minute walkthroughs. Show architecture/trust boundaries, API/schema, model/retrieval evaluation, p50/p95 latency, errors/concurrency/cost assumptions, security tests, a diagnosed failure, a measured trade-off, and limitations.

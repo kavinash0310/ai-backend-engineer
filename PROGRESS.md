@@ -1,58 +1,52 @@
-# AI backend engineer progress
+# Progress: Java/Spring AI backend engineer
 
-Use this tracker as evidence of completed skills. Mark a topic done only after completing its practice and explaining the trade-offs without copying the notes.
+Track demonstrated ability rather than pages read. Complete a box only after you can explain the concept, implement or review it, and show evidence in code, a test, diagram, or measurement.
 
-## Starting point
+## Starting profile
 
-- **Python level:** none / beginner / intermediate
-- **Backend experience:** none / beginner / intermediate
-- **Hours per week:**
-- **Project goal:**
-- **Start date:**
+- Java version and experience:
+- Spring Boot services owned:
+- SQL/PostgreSQL experience:
+- Cloud experience:
+- Current AI/ML knowledge:
+- Hours per week:
+- Target role:
 
-## Stage checklist
+## Learning stages
 
-- [ ] 0. Python, Git, terminal, and AI map
-- [ ] 1. Linux process and network basics
-- [ ] 2. HTTP and API design
-- [ ] 3. FastAPI and async Python
-- [ ] 4. PostgreSQL and data modeling
-- [ ] 5. Authentication, authorization, and API security
-- [ ] 6. Caching, queues, and object/vector storage
-- [ ] 7. Model-provider integration
-- [ ] 8. RAG backend
-- [ ] 9. Tools and durable workflows
-- [ ] 10. Testing and evaluation
-- [ ] 11. Docker and deployment
-- [ ] 12. Observability, reliability, and scaling
-- [ ] 13. Portfolio capstone
+- [ ] 0. Explain inference, tokens, context, embeddings, retrieval, uncertainty; link theory notes from [AI From Scratch](https://github.com/kavinash0310/ai-from-scratch).
+- [ ] 1. Build a typed Java provider port with deadlines, error categories, fake adapter, tests.
+- [ ] 2. Build a Spring API with DTO validation, stable errors, application boundaries, OpenAPI.
+- [ ] 3. Persist requests/jobs in PostgreSQL with constraints, transactions, migrations, indexes.
+- [ ] 4. Enforce identity, object authorization, tenant isolation, and safe data retention.
+- [ ] 5. Integrate a model with limits, output validation, provider failure policy, and usage metrics.
+- [ ] 6. Implement ingestion and permission-aware RAG with citations and a versioned evaluation set.
+- [ ] 7. Run long work durably with job states, idempotency, retries, and recovery.
+- [ ] 8. Add deterministic unit/integration/contract/security/failure tests.
+- [ ] 9. Measure AI quality separately from software correctness.
+- [ ] 10. Deploy to one cloud with configuration, secrets, probes, and rollback.
+- [ ] 11. Trace requests, graph latency/errors/cost, define SLOs, and run a failure drill.
+- [ ] 12. Complete capstone design review and explain trade-offs to another engineer.
 
-## Learning log
+## Weekly learning log
 
-| Date | Topic or thing built | What failed or confused me | Next step |
-| --- | --- | --- | --- |
-| YYYY-MM-DD |  |  |  |
+| Date | Topic and artifact | What failed or confused me | Evidence/measurement | Next step |
+| --- | --- | --- | --- | --- |
+| YYYY-MM-DD |  |  |  |  |
 
-## Evidence checklist
+## Production evidence inventory
 
-- [ ] I can explain an HTTP request from client to database and back.
-- [ ] I can build a validated API endpoint and document its contract.
-- [ ] I can distinguish authentication from authorization.
-- [ ] I can use parameterized SQL, transactions, and migrations.
-- [ ] I can explain async I/O, queues, retries, and idempotency.
-- [ ] I can call an AI model without exposing credentials or blocking the whole service.
-- [ ] I can implement a RAG flow with source permissions and evaluation.
-- [ ] I can test API behavior and AI output quality separately.
-- [ ] I can package and deploy an application reproducibly.
-- [ ] I can diagnose latency, errors, and cost from traces, metrics, and logs.
-- [ ] I can describe limitations and security risks in my capstone.
+- [ ] Architecture diagram with trust boundaries and data flows.
+- [ ] API examples, validation rules, stable errors, and schema.
+- [ ] Database schema, migration, index, transaction, and recovery rationale.
+- [ ] Threat model for tenant access, prompt injection, secrets, and sensitive data.
+- [ ] Tests for provider timeout, invalid output, duplicate work, and unauthorized access.
+- [ ] Versioned AI evaluation with retrieval and generation measured separately.
+- [ ] Load test for throughput, p95 latency, errors, and resource constraint.
+- [ ] Redacted logs, metrics, traces, dashboards, and alerts.
+- [ ] Deployment/rollback instructions and a tested restore assumption.
+- [ ] Runbook for provider outage and queue/data failure.
+- [ ] Cost model for a request or job and its major cost drivers.
+- [ ] Limitations and decisions that need future review.
 
-## Project evidence
-
-| Project | Demo or repository | Tests/evaluation | Known limitations |
-| --- | --- | --- | --- |
-| Inference API |  |  |  |
-| Grounded RAG service |  |  |  |
-| Production capstone |  |  |  |
-
-Continue with the [course index](course/README.md) and [readiness rubric](assessments/README.md).\n\n## Optional advanced operations\n\n- [ ] Design an AI backend for load, failure, and recovery ([lesson](course/operations/03-system-design-and-cloud.md))\n- [ ] Compare hosted and self-hosted inference with measured quality/cost ([lesson](course/ai-systems/04-self-hosted-model-serving.md))\n
+Continue with the [Java/Spring course](course/java-spring/README.md) and [readiness rubric](assessments/README.md).

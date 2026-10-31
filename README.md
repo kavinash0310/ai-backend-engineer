@@ -1,62 +1,75 @@
-# AI Backend Engineer: from foundations to production systems
+# AI Backend Engineer — Java and Spring Boot path
 
-A practical self-study path for learning how to build, secure, test, deploy, and operate backend services that use machine-learning models and large language models.
+A structured path for Java/Spring Boot developers who want to design, build, secure, evaluate, and operate production systems that use machine-learning models and large language models.
 
-## Start with the two-repository path
+**Start here:** [Java + Spring AI course](course/java-spring/README.md) · [Roadmap](ROADMAP.md) · [Progress](PROGRESS.md)
 
-This repository focuses on backend engineering and production AI systems. It is designed to work alongside [AI From Scratch](https://github.com/kavinash0310/ai-from-scratch), which teaches Python, mathematics, AI, machine learning, deep learning, NLP, LLMs, generative AI, and responsible AI from beginner level.
+This repo teaches the engineering around models. Its companion, [AI From Scratch](https://github.com/kavinash0310/ai-from-scratch), teaches AI/ML theory, Python for model work, mathematics, NLP, transformers, LLMs, embeddings, and generative AI. You do not need to switch your backend language from Java to follow this path.
 
-- If you are new to programming or AI, begin with the [AI From Scratch textbook](https://github.com/kavinash0310/ai-from-scratch/blob/main/course/TEXTBOOK.md), especially [Python](https://github.com/kavinash0310/ai-from-scratch/blob/main/course/python/TEXTBOOK.md), [ML](https://github.com/kavinash0310/ai-from-scratch/blob/main/course/ml/TEXTBOOK.md), [LLMs](https://github.com/kavinash0310/ai-from-scratch/blob/main/course/llm/TEXTBOOK.md), and [generative AI systems](https://github.com/kavinash0310/ai-from-scratch/blob/main/course/generative-ai/TEXTBOOK.md).
-- Use this repository for HTTP APIs, databases, authentication, queues, model-provider integration, RAG backends, testing, deployment, reliability, observability, and security.
-- You do not need to repeat all AI theory here. Learn enough model behavior to make sound backend design decisions, then link back to the AI course when a concept needs deeper study.
-
-## The learning path
+## The route
 
 ~~~mermaid
-flowchart LR
-  A[Python and Git] --> B[Linux, HTTP, networking]
-  B --> C[API design and FastAPI]
-  C --> D[SQL, PostgreSQL, data modeling]
-  D --> E[Auth, security, testing]
-  E --> F[Async work, queues, caching]
-  F --> G[Model APIs and inference]
-  G --> H[RAG and tool workflows]
-  H --> I[Docker and deployment]
-  I --> J[Observability, scale, reliability]
-  J --> K[Production capstone]
+flowchart TD
+  A[Java and Spring Boot you already know] --> B[AI and model literacy]
+  B --> C[Modern Java for model I/O]
+  C --> D[Spring service boundaries and APIs]
+  D --> E[Identity, privacy, threat modeling]
+  E --> F[Spring AI integration]
+  F --> G[PostgreSQL, embeddings, permission-aware RAG]
+  G --> H[Durable jobs and messaging]
+  H --> I[Testing and AI evaluation]
+  I --> J[Observability, JVM performance, cost]
+  J --> K[Docker, cloud, Kubernetes]
+  K --> L[Senior production capstone]
 ~~~
 
-A reasonable pace is 6–10 focused hours each week over roughly 6–10 months, depending on prior coding experience. Move forward when you can build and explain the checkpoint, not just when you finish reading.
+## Study order and evidence
 
-## Advanced electives\n\nAfter the core, study [system design and cloud foundations](course/operations/03-system-design-and-cloud.md) and [self-hosted model serving](course/ai-systems/04-self-hosted-model-serving.md) if those match your target role.\n\n## What you will be able to build
+| Phase | Learn | Evidence |
+| --- | --- | --- |
+| 0. AI literacy | Inference, tokens, context, embeddings, retrieval, uncertainty, evaluation | Explain what a model can and cannot guarantee |
+| 1. Java readiness | Immutability, records, error modeling, timeouts, executors, virtual threads | Typed provider adapter with bounded waiting and tests |
+| 2. Spring architecture | MVC, validation, use-case boundaries, configuration, REST contracts | Documented API with stable errors and clear layers |
+| 3. Security and data | PostgreSQL, transactions, OAuth2/OIDC, JWT, tenant/object access | Threat model and tests proving tenant isolation |
+| 4. Model integration | Spring AI, provider adapters, structured output, streaming, budgets | Inference endpoint with limits and failure policy |
+| 5. RAG and workflows | Ingestion, embeddings, retrieval, citations, queues, idempotency | Evaluated RAG service and recoverable background jobs |
+| 6. Quality | JUnit, integration/contract tests, Testcontainers, AI evaluation | Repeatable software tests and a versioned quality report |
+| 7. Production | Docker, one cloud, Kubernetes basics, OpenTelemetry, SLOs, JVM tuning | Deployed service with traces, dashboard, runbook, and rollback |
+| 8. Senior practice | Capacity, trade-offs, architecture decisions, incidents, communication | Capstone design review with measurements and limitations |
 
-By the end, you should be able to design a backend that accepts a request, authenticates the caller, validates input, reads and writes persistent data, calls an AI model safely, handles slow work, returns a clear response, measures quality and cost, and recovers from failures. You will also learn when a queue, cache, vector index, or agent is unnecessary.
+## Technology map
 
-## Course map
+**Primary:** Java, Spring Boot, Spring MVC, Spring AI, Maven or Gradle, PostgreSQL, Flyway or Liquibase, JUnit 5, Testcontainers, Docker, Micrometer/OpenTelemetry, and one cloud.
 
-1. **Programming and computer foundations** — reuse the Python and Git path from AI From Scratch; learn the shell, processes, environment variables, and basic networking.
-2. **HTTP and API design** — requests, responses, JSON, status codes, validation, REST conventions, errors, pagination, streaming, and versioning.
-3. **Python backend services** — FastAPI, request models, dependency injection, async I/O, configuration, and service boundaries.
-4. **Data systems** — PostgreSQL, SQL, transactions, indexes, migrations, connection pools, Redis, object storage, and queues.
-5. **Identity and security** — authentication versus authorization, sessions and tokens, object-level permissions, input limits, secret handling, and AI-specific threats.
-6. **AI integration** — model API contracts, timeouts, retries, rate limits, token and cost budgets, structured outputs, embeddings, RAG, and tool calling.
-7. **Testing and evaluation** — unit, integration, contract, load, failure, and AI quality tests.
-8. **Deployment and operations** — containers, configuration, health checks, logs, metrics, traces, SLOs, scaling, and incident response.
-9. **Portfolio capstones** — ship increasingly complete AI backend services with documentation and evidence.
+**Add when justified:** Redis for bounded caching or coordination; Kafka or a managed queue for durable work; pgvector or a dedicated vector store for semantic retrieval; Kubernetes for orchestration; Python for notebooks, data preparation, training, or model-serving components.
 
-## How to study a chapter
+Check the current Spring AI/Spring Boot compatibility matrix and BOM instead of copying old version numbers. Framework, Java, provider, and cloud support change. See [official references](SOURCES.md).
 
-Read the concept, trace the request or data flow, reproduce the example, answer the questions without looking, and complete the practice task. Record decisions and failure cases. A production backend is not just an endpoint that returns a model answer; it is the surrounding data, identity, safety, performance, and operations system.
+## Use your AI From Scratch repository
 
-## Career expectations
+Follow the [textbook index](https://github.com/kavinash0310/ai-from-scratch/blob/main/course/TEXTBOOK.md), then use these theory subjects as needed:
 
-This repo can build a strong learning path and portfolio foundation. It cannot guarantee a job or expert status. Employers expect you to explain trade-offs, read documentation, debug real services, review security, and maintain systems whose inputs and dependencies change. Use the project rubrics and self-assessments as evidence of skills, not as a credential.
+1. [Mathematics](https://github.com/kavinash0310/ai-from-scratch/tree/main/course/mathematics) and [ML](https://github.com/kavinash0310/ai-from-scratch/tree/main/course/ml): probability, generalization, leakage, calibration, and evaluation.
+2. [NLP](https://github.com/kavinash0310/ai-from-scratch/tree/main/course/nlp) and [LLMs](https://github.com/kavinash0310/ai-from-scratch/tree/main/course/llm): tokens, embeddings, attention, context, inference, and fine-tuning.
+3. [Generative AI](https://github.com/kavinash0310/ai-from-scratch/tree/main/course/generative-ai): prompting, RAG, tool use, evaluation, and safety.
+4. Return here for APIs, security, persistence, queues, testing, deployment, and operations.
 
-## Contents
+Most backend engineers integrate models; ML engineers may also train or serve them. Senior AI backend engineers need enough model literacy to challenge designs, evaluate behavior, and avoid treating probabilistic output as truth.
 
-- [Full course roadmap](ROADMAP.md)
-- [Course index](course/README.md)
+## Senior-level outcome
+
+You should be able to explain a request end to end; choose synchronous or asynchronous execution; set quality, latency, privacy, and cost budgets; protect tenant boundaries; measure retrieval separately from generation; manage provider outages and model changes; and present trade-offs using evidence.
+
+This curriculum structures learning and portfolio practice. Reading alone does not certify expertise or guarantee a job; seniority also comes from owning production systems and learning from real constraints and incidents.
+
+## Repository guide
+
+- [Full roadmap](ROADMAP.md)
+- [Java/Spring course index](course/java-spring/README.md)
 - [Progress tracker](PROGRESS.md)
 - [Glossary](course/GLOSSARY.md)
 - [Projects](projects/README.md)
-- [Assessment and readiness rubric](assessments/README.md)
+- [Senior readiness assessment](assessments/README.md)
+- [Official references](SOURCES.md)
+
+The existing [backend](course/backend/README.md), [data](course/data/README.md), [security](course/security/README.md), [AI systems](course/ai-systems/README.md), [testing](course/testing/README.md), and [operations](course/operations/README.md) folders contain cross-stack references. FastAPI is optional on this Java-first route.

@@ -1,12 +1,12 @@
 # AI backend engineering course
 
-This is a **Java and Spring Boot-first course** for engineers building production AI backends. It complements [AI From Scratch](https://github.com/kavinash0310/ai-from-scratch): use that repo for AI/ML and model theory; use this one for services, data, identity, workflows, evaluation, security, deployment, and operations.
+This repository combines a **Java and Spring Boot-first backend course** with a connected [AI foundations track](ai-foundations/README.md). Use the foundations track and [AI From Scratch](https://github.com/kavinash0310/ai-from-scratch) for model and AI/ML theory; use the Java/Spring route for services, data, identity, workflows, evaluation, security, deployment, and operations.
 
 ## Main learning path
 
 Follow the numbered [Java/Spring course](java-spring/README.md). The route assumes you know basic Java and Spring Boot.
 
-1. **AI literacy:** [AI From Scratch textbook](https://github.com/kavinash0310/ai-from-scratch/blob/main/course/TEXTBOOK.md), then ML and LLM introductions.
+1. **AI literacy:** follow the [AI foundations course](ai-foundations/README.md) or [AI From Scratch textbook](https://github.com/kavinash0310/ai-from-scratch/blob/main/course/TEXTBOOK.md), then continue with ML and LLM introductions.
 2. **Modern Java:** [patterns for model I/O](java-spring/01-modern-java-for-ai-backends.md).
 3. **Spring architecture:** [service design and APIs](java-spring/02-spring-boot-service-architecture.md).
 4. **Data and security:** [PostgreSQL](data/01-postgresql-and-data-modeling.md), [Spring Security and AI APIs](java-spring/03-spring-security-for-ai-apis.md).
@@ -20,6 +20,7 @@ Follow the numbered [Java/Spring course](java-spring/README.md). The route assum
 
 | Folder | What it covers | Java/Spring route |
 | --- | --- | --- |
+| [AI foundations](ai-foundations/README.md) | From programming/math through AI, ML, NLP, LLMs, RAG, agents, evaluation, and operations | Theory companion |
 | [Java + Spring](java-spring/README.md) | Java, Spring Boot/Security/AI, data, RAG, tests, operations | Primary, required |
 | [Backend](backend/README.md) | Linux, HTTP, APIs, async; includes a FastAPI implementation | Concepts useful; FastAPI optional |
 | [Data](data/README.md) | PostgreSQL, transactions, caching, queues, vector storage | Required concepts |

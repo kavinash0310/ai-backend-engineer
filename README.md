@@ -2,9 +2,9 @@
 
 A structured path for Java/Spring Boot developers who want to design, build, secure, evaluate, and operate production systems that use machine-learning models and large language models.
 
-**Start here:** [Java + Spring AI course](course/java-spring/README.md) · [Roadmap](ROADMAP.md) · [Progress](PROGRESS.md)
+**Start here:** [AI foundations course](course/ai-foundations/README.md) · [Java + Spring AI course](course/java-spring/README.md) · [Roadmap](ROADMAP.md) · [Progress](PROGRESS.md)
 
-This repo teaches the engineering around models. Its companion, [AI From Scratch](https://github.com/kavinash0310/ai-from-scratch), teaches AI/ML theory, Python for model work, mathematics, NLP, transformers, LLMs, embeddings, and generative AI. You do not need to switch your backend language from Java to follow this path.
+This repo teaches the engineering around models. The [AI foundations course](course/ai-foundations/README.md) provides a connected theory-first path inside this repository, and [AI From Scratch](https://github.com/kavinash0310/ai-from-scratch) is a companion for broader AI/ML theory, Python, mathematics, NLP, transformers, LLMs, embeddings, and generative AI. You do not need to switch your backend language from Java to follow this path.
 
 ## The route
 
@@ -77,6 +77,7 @@ This curriculum structures learning and portfolio practice. Reading alone does n
 ## Repository guide
 
 - [Full roadmap](ROADMAP.md)
+- [AI foundations course](course/ai-foundations/README.md)
 - [Java/Spring course index](course/java-spring/README.md)
 - [Progress tracker](PROGRESS.md)
 - [Glossary](course/GLOSSARY.md)

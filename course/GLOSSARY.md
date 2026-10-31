@@ -1,5 +1,7 @@
 # AI backend engineering glossary
 
+For deeper AI/ML vocabulary and model-family trade-offs, see the [AI foundations glossary and model map](ai-foundations/18-REFERENCES-AND-GLOSSARY/AI-ML-GLOSSARY-AND-MODEL-MAP.md).
+
 ## Backend and networking
 
 - **API:** A contract that lets software systems request data or actions from each other.

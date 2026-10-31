@@ -40,7 +40,7 @@ Use only the modules you need; the AI backend roadmap remains the sequence to fo
 
 ### Phase 0 — Model literacy
 
-Begin with the [AI From Scratch textbook](https://github.com/kavinash0310/ai-from-scratch/blob/main/course/TEXTBOOK.md), then study the companion's ML evaluation and LLM introductions. Learn model, inference, token, context window, embedding, vector similarity, hallucination, grounding, temperature, structured output, fine-tuning, and evaluation set.
+Begin with the in-repository [AI foundations course](course/ai-foundations/README.md) or the companion [AI From Scratch textbook](https://github.com/kavinash0310/ai-from-scratch/blob/main/course/TEXTBOOK.md), then study ML evaluation and LLM introductions. Learn model, inference, token, context window, embedding, vector similarity, hallucination, grounding, temperature, structured output, fine-tuning, and evaluation set.
 
 **Deliverable:** one page separating deterministic software from model behavior in a product feature. Do not begin by trying to train a large model.
 

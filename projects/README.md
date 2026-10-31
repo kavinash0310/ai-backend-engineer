@@ -6,4 +6,4 @@ Build these projects in order using **Java and Spring Boot** as the default. Inc
 2. [Grounded RAG service](02-grounded-rag-service.md) — durable ingestion, tenant-aware retrieval, citations, deletion behavior, versioned evaluation.
 3. [Production capstone](03-production-ai-backend-capstone.md) — jobs, database, provider limits, cloud deployment, observability, security review, recovery.
 
-Older cross-stack examples may use Python/FastAPI. Treat them as concepts or optional comparisons; implement the primary route in Java/Spring. Use synthetic or licensed data. Never commit API keys or private user information.
+For a step-by-step generic knowledge assistant build, see the [AI foundations project guide](../course/ai-foundations/15-PORTFOLIO-PROJECTS/01-ai-knowledge-assistant-project-guide.md). Older cross-stack examples may use Python/FastAPI. Treat them as concepts or optional comparisons; implement the primary route in Java/Spring. Use synthetic or licensed data. Never commit API keys or private user information.

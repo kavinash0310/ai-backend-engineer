@@ -14,7 +14,7 @@ Track demonstrated ability rather than pages read. Complete a box only after you
 
 ## Learning stages
 
-- [ ] 0. Explain inference, tokens, context, embeddings, retrieval, uncertainty; use the [AI foundations course](course/ai-foundations/README.md) and [AI From Scratch](https://github.com/kavinash0310/ai-from-scratch) theory notes.
+- [ ] 0. Explain inference, tokens, context, embeddings, retrieval, uncertainty; use the [AI foundations course](./course/ai-backend-engineer/README.md) and [AI From Scratch](https://github.com/kavinash0310/ai-from-scratch) theory notes.
 - [ ] 1. Build a typed Java provider port with deadlines, error categories, fake adapter, tests.
 - [ ] 2. Build a Spring API with DTO validation, stable errors, application boundaries, OpenAPI.
 - [ ] 3. Persist requests/jobs in PostgreSQL with constraints, transactions, migrations, indexes.
@@ -49,4 +49,4 @@ Track demonstrated ability rather than pages read. Complete a box only after you
 - [ ] Cost model for a request or job and its major cost drivers.
 - [ ] Limitations and decisions that need future review.
 
-Continue with the [Java/Spring course](course/java-spring/README.md) and [readiness rubric](assessments/README.md).
+Continue with the [Java/Spring course](./course/ai-backend-engineer/02-programming/java-spring/README.md) and [readiness rubric](./assessments/README.md).

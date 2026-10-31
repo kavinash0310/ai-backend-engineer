@@ -2,9 +2,9 @@
 
 A structured path for Java/Spring Boot developers who want to design, build, secure, evaluate, and operate production systems that use machine-learning models and large language models.
 
-**Start here:** [AI foundations course](course/ai-foundations/README.md) · [Java + Spring AI course](course/java-spring/README.md) · [Roadmap](ROADMAP.md) · [Progress](PROGRESS.md)
+**Start here:** [AI foundations course](./course/ai-backend-engineer/README.md) · [Java + Spring AI course](./course/ai-backend-engineer/02-programming/java-spring/README.md) · [Roadmap](./ROADMAP.md) · [Progress](./PROGRESS.md)
 
-This repo teaches the engineering around models. The [AI foundations course](course/ai-foundations/README.md) provides a connected theory-first path inside this repository, and [AI From Scratch](https://github.com/kavinash0310/ai-from-scratch) is a companion for broader AI/ML theory, Python, mathematics, NLP, transformers, LLMs, embeddings, and generative AI. You do not need to switch your backend language from Java to follow this path.
+This repo teaches the engineering around models. The [AI foundations course](./course/ai-backend-engineer/README.md) provides a connected theory-first path inside this repository, and [AI From Scratch](https://github.com/kavinash0310/ai-from-scratch) is a companion for broader AI/ML theory, Python, mathematics, NLP, transformers, LLMs, embeddings, and generative AI. You do not need to switch your backend language from Java to follow this path.
 
 ## The route
 
@@ -43,7 +43,7 @@ flowchart TD
 
 **Add when justified:** Redis for bounded caching or coordination; Kafka or a managed queue for durable work; pgvector or a dedicated vector store for semantic retrieval; Kubernetes for orchestration; Python for notebooks, data preparation, training, or model-serving components.
 
-Check the current Spring AI/Spring Boot compatibility matrix and BOM instead of copying old version numbers. Framework, Java, provider, and cloud support change. See [official references](SOURCES.md).
+Check the current Spring AI/Spring Boot compatibility matrix and BOM instead of copying old version numbers. Framework, Java, provider, and cloud support change. See [official references](./SOURCES.md).
 
 ## Use your AI From Scratch repository
 
@@ -76,13 +76,13 @@ This curriculum structures learning and portfolio practice. Reading alone does n
 
 ## Repository guide
 
-- [Full roadmap](ROADMAP.md)
-- [AI foundations course](course/ai-foundations/README.md)
-- [Java/Spring course index](course/java-spring/README.md)
-- [Progress tracker](PROGRESS.md)
-- [Glossary](course/GLOSSARY.md)
-- [Projects](projects/README.md)
-- [Senior readiness assessment](assessments/README.md)
-- [Official references](SOURCES.md)
+- [Full roadmap](./ROADMAP.md)
+- [AI foundations course](./course/ai-backend-engineer/README.md)
+- [Java/Spring course index](./course/ai-backend-engineer/02-programming/java-spring/README.md)
+- [Progress tracker](./PROGRESS.md)
+- [Glossary](./course/ai-backend-engineer/16-reference/AI-Backend-Glossary.md)
+- [Projects](./course/ai-backend-engineer/14-projects/build-projects/README.md)
+- [Senior readiness assessment](./assessments/README.md)
+- [Official references](./SOURCES.md)
 
-The existing [backend](course/backend/README.md), [data](course/data/README.md), [security](course/security/README.md), [AI systems](course/ai-systems/README.md), [testing](course/testing/README.md), and [operations](course/operations/README.md) folders contain cross-stack references. FastAPI is optional on this Java-first route.
+The existing [backend](./course/ai-backend-engineer/01-computing-foundations/backend-basics/README.md), [data](./course/ai-backend-engineer/04-data-engineering/database-and-storage/README.md), [security](./course/ai-backend-engineer/12-security-and-governance/backend-security/README.md), [AI systems](./course/ai-backend-engineer/10-ai-backend-systems/provider-integration/README.md), [testing](./course/ai-backend-engineer/11-evaluation-and-mlops/testing/README.md), and [operations](./course/ai-backend-engineer/13-system-design-and-operations/backend-operations/README.md) folders contain cross-stack references. FastAPI is optional on this Java-first route.

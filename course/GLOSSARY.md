@@ -19,7 +19,33 @@
 - **SSE:** Server-Sent Events, a one-way server-to-client event stream over HTTP.
 - **WebSocket:** A persistent two-way communication channel between client and server.
 
-## Python application design
+## Java and Spring
+
+- **Spring Boot:** Spring framework for creating configurable Java applications with embedded server and auto-configuration support.
+- **Spring MVC:** Servlet-based Spring web framework for request/response HTTP applications.
+- **Spring AI:** Spring project that provides integrations and abstractions for model providers, embeddings, vector stores, and AI workflows.
+- **Spring Security resource server:** Security configuration that validates bearer tokens issued by an identity provider.
+- **Bean Validation:** Standard constraints used to validate object fields and request data.
+- **RestClient:** Synchronous Spring HTTP client with a fluent API.
+- **WebClient:** Non-blocking Spring HTTP client, often used with reactive composition and streaming.
+- **Virtual thread:** Lightweight Java thread suited to many blocking I/O tasks; it does not increase database or provider capacity.
+- **Managed bean:** Object whose lifecycle and dependencies are controlled by a dependency-injection container such as Spring.
+- **Actuator:** Spring Boot module for operational endpoints and application information; endpoints must be secured appropriately.
+- **Micrometer:** Instrumentation facade for application metrics and observation.
+- **OpenTelemetry:** Standardized APIs and data formats for traces, metrics, and logs.
+- **Testcontainers:** Library for running disposable real dependencies such as PostgreSQL during integration tests.
+
+## Messaging and resilience
+
+- **At-least-once delivery:** Delivery guarantee that may deliver a message again after a failure; consumers must handle duplicates.
+- **Transactional outbox:** Pattern that stores a business update and intent to publish an event in the same database transaction.
+- **Idempotency key:** Client or business identifier used to recognize duplicate requests/operations.
+- **Lease:** Temporary claim on a job that expires so another worker can recover it after a crash.
+- **Fencing token:** Increasing version/number used to prevent an expired worker from overwriting newer work.
+- **Exponential backoff:** Retry delay that grows after successive failures.
+- **Jitter:** Randomized delay added to retries to avoid synchronized retry bursts.
+
+## Python application design (optional implementation path for Spring developers)
 
 - **ASGI:** An async-capable Python interface between web servers and applications.
 - **Dependency injection:** A way to supply resources or policies to a function without hardcoding construction.

@@ -1,20 +1,49 @@
-# Project 2: grounded RAG service
+# Project 2: permission-aware grounded RAG service
 
 ## Goal
 
-Build a question-answering API over a small, permission-scoped document collection. The backend must retrieve evidence, cite it, and abstain when the corpus does not support an answer.
+Build a Java/Spring question-answering API over a small permission-scoped document collection. Retrieve authorized evidence, cite it, and abstain when evidence does not support an answer. RAG reduces some failure modes; it does not guarantee truth.
 
-## Requirements
+## Suggested stack
 
-- Upload or ingest documents asynchronously with size/type checks.
-- Store original files outside the relational database and record metadata/status in PostgreSQL.
-- Extract text, chunk it, retain source, version, tenant, and access metadata.
-- Index embeddings in a vector search system; add lexical search if useful.
-- Authenticate the caller and filter retrieval before constructing model context.
-- Return citations that point to the supporting source passages.
-- Add tests for missing evidence, stale versions, cross-tenant access, provider timeout, and prompt injection inside a document.
-- Evaluate retrieval separately from answer support and citation correctness.
+Spring Boot, Spring AI, Spring Security resource-server support, PostgreSQL, Flyway or Liquibase, pgvector or an evaluated vector service, object storage for original files, a queue/worker for ingestion, JUnit/Testcontainers, and an evaluation dataset.
 
-## Report
+## Design the two workflows
 
-Include the retrieval method, chunk policy, test questions, top-k recall, citation score, no-answer behavior, latency, cost, and known limitations. Do not claim that RAG guarantees factual answers.
+### Ingestion
+
+1. Authenticate uploader and verify document ownership/tenant.
+2. Enforce file type/size limits and safe parsing policy.
+3. Store the source in object storage; record source ID, tenant, version, parser version, status, and retention metadata in PostgreSQL.
+4. Extract and normalize content while preserving page/section metadata.
+5. Chunk by document structure; record chunking and embedding model versions.
+6. Embed and index chunks with tenant and access metadata.
+7. Expose job status and safe failure reason.
+8. On replacement or deletion, remove or supersede every derived chunk under the documented retention policy.
+
+### Query
+
+1. Authenticate caller and derive tenant/actor from trusted claims.
+2. Apply document ACL filters during vector/keyword retrieval, before constructing model context.
+3. Retrieve a bounded candidate set; optionally rerank and deduplicate.
+4. Build a prompt with stable source IDs/sections and limited context.
+5. Generate response with output budget and timeout.
+6. Validate citations point only to retrieved authorized passages.
+7. Return answer, citations, and explicit abstention status when evidence is insufficient.
+
+## Requirements and tests
+
+- Ingestion runs asynchronously and is idempotent.
+- Source files remain outside the relational database; metadata and job state are durable.
+- Record source version, tenant/ACL, parser, chunking, embedding model, and index status.
+- Include lexical search for exact names/IDs if useful; measure whether it improves retrieval.
+- Test direct-ID and semantic cross-tenant access, revoked permission, stale source, malformed file, duplicate job, provider timeout, unanswerable query, and prompt injection inside a document.
+- Do not log document contents or prompts by default.
+
+## Evaluation report
+
+Create a versioned set with expected relevant source IDs and answer criteria. Report retrieval recall@k/precision@k separately from answer correctness, groundedness, and citation support. Include unanswerable/conflicting/outdated cases. Record model, prompt, dataset, parser, embedding, and retrieval configuration versions. Human-review a sample; automated judge scores alone are insufficient.
+
+## Questions for design review
+
+How quickly does deletion affect the vector index? What happens when permissions are revoked while ingestion is running? What if a chunk is relevant but unauthorized? How do you detect embedding-version mismatch? What evidence shows a citation actually supports a claim?
